@@ -1,6 +1,22 @@
 # pg
-bitnami postgres with multi-user/db
+Postgres with multi-user/db
 
-```shell
-export POSTGRES_MULTIPLE_DATABASES=api,backend,service
+```yaml
+services:
+  postgres:
+    image: collinmutembei/postgres:latest
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: dbpassword
+      POSTGRES_MULTIPLE_DATABASES: "app,api"
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+    postgres_data
 ```
+
+
