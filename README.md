@@ -16,7 +16,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 volumes:
-    postgres_data
+    postgres_data:
 ```
 
 
